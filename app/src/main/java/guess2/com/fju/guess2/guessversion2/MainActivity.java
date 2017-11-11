@@ -1,6 +1,5 @@
 package guess2.com.fju.guess2.guessversion2;
 
-import android.content.res.Resources;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,8 +12,8 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     Random ran = new Random();
-    int r = ran.nextInt(9) + 1;
-    int max = 10;
+    int r = ran.nextInt(99) + 1;
+    int max = 100;
     int min = 1;
 
 
@@ -57,8 +56,9 @@ public class MainActivity extends AppCompatActivity {
                             .setTitle("結果")
                             .setNegativeButton("確定", null)
                             .show();
-                    TextView number0 = (TextView) findViewById(R.id.number_10);
-                    number0.setText(n);
+                    TextView number0 = (TextView) findViewById(R.id.number_0);
+                    String s = String.valueOf(n);
+                    number0.setText(Integer.toString(n));
                     break;
                 }
                 while (n > min && n < max && n > r) {
@@ -67,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
                             .setTitle("結果")
                             .setNegativeButton("確定", null)
                             .show();
-                    TextView number10 = (TextView) findViewById((R.id.number_0));
-                    number10.setText(n);
+                    TextView number100 = (TextView) findViewById((R.id.number_100));
+                    String s = String.valueOf(n);
+                    number100.setText(Integer.toString(n));
                     break;
                 }
 
