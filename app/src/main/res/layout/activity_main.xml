@@ -74,4 +74,16 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp" />
 
+    <Button
+        android:id="@+id/b_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        android:onClick="play"
+        android:text="玩法"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintLeft_toLeftOf="@+id/b_send"
+        app:layout_constraintTop_toBottomOf="@+id/b_send" />
+
 </android.support.constraint.ConstraintLayout>

@@ -74,6 +74,16 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
+
         });
+    }
+
+    public void play(View view) {
+        Button bInfo = (Button) findViewById(R.id.b_info);
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("遊戲介紹")
+                .setMessage("遊戲玩法內容拉拉拉~")
+                .setPositiveButton("了解", null)
+                .show();
     }
 }
