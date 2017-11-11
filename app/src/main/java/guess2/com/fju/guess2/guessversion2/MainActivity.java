@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-                int random = 5;
-                int max = 10;
-                int min = 0;
+    Random ran = new Random();
+    int r = ran.nextInt(9) + 1;
+    int max = 10;
+    int min = 1;
 
 
     @Override
@@ -20,36 +24,55 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);                 /*自弄生成*/
 
         Button bSend = (Button) findViewById(R.id.b_send);              /*從畫面取得元件*/
+
         bSend.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-
                 EditText edNumber = (EditText) findViewById(R.id.ed_number);    /*從畫面取得元件*/
                 int n = Integer.parseInt(edNumber.getText().toString());
 
-                if(n>max){
+                if (n >= max) {
                     new AlertDialog.Builder(MainActivity.this)
                             .setMessage("超過最大值")
                             .setTitle("結果")
-                            .setPositiveButton("確定",null)
+                            .setPositiveButton("確定", null)
                             .show();
                 }
-                if(n<min){
+                if (n <= min) {
                     new AlertDialog.Builder(MainActivity.this)
                             .setMessage("低於最小值")
                             .setTitle("結果")
-                            .setPositiveButton("確定",null)
+                            .setPositiveButton("確定", null)
                             .show();
                 }
-                if(n== random){
+                if (n == r) {
                     new AlertDialog.Builder(MainActivity.this)
                             .setMessage("答對了")
                             .setTitle("結果")
-                            .setNegativeButton("確定",null)
+                            .setNegativeButton("確定", null)
                             .show();
                 }
+                while (n > min && n < max && n < r) {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setMessage("大一點")
+                            .setTitle("結果")
+                            .setNegativeButton("確定", null)
+                            .show();
+                    TextView number0 = (TextView) findViewById(R.id.number_10);
+                    number0.setText(n);
+                    break;
+                }
+                while (n > min && n < max && n > r) {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setMessage("小一點")
+                            .setTitle("結果")
+                            .setNegativeButton("確定", null)
+                            .show();
+                    TextView number10 = (TextView) findViewById((R.id.number_0));
+                    number10.setText(n);
+                    break;
+                }
+
             }
         });
-
     }
 }
